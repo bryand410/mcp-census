@@ -1,0 +1,3 @@
+# The crawl runs on more than one machine and the analysis reads these files
+# byte-for-byte, so the repository stores LF whatever the local git says.
+* text=auto eol=lf

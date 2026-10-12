@@ -1,0 +1,17 @@
+# Raw dumps. 40 MB of JSONL that crawl.py regenerates in one command; there is
+# no reason to carry it in git.
+data/*.jsonl
+data/cursor*.txt
+
+# Derived data IS committed: it is small, and it is what the report quotes.
+!data/*.csv
+!data/*.json
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+dist/
+build/
+*.egg-info/
