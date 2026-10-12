@@ -12,18 +12,18 @@ call it? This repository answers that with numbers instead of impressions.
 
 ## What it found, in three lines
 
-1. **The registry is two populations, and the average is meaningless.** Opaque
-   servers — callable, publishing neither source nor package — run from **4.7 %**
-   in `guide.*` to **85.6 %** in `de.*`. `io.github.*` is 8 % opaque; `com.*` is
-   60 %. Freezing the dataset twice proves the point: the aggregate fell from
-   **41.0 %** to **24.6 %** between snapshots while every completed namespace
-   stayed identical. The average measures the crawl's alphabetical position.
+1. **The registry is two populations, and the average hides it.** Opaque servers —
+   callable, publishing neither source nor package — run from **4.7 %** in
+   `guide.*` to **91.3 %** in `live.*`. `io.github.*` is 8.7 % opaque; `com.*` is
+   60 %. Freezing the dataset three times proves the point: the aggregate went
+   **41.0 % → 24.6 % → 26.0 %** while every completed namespace stayed identical
+   to one decimal. A partial pass is a prefix of the alphabet, not a sample.
 2. **Descriptions are not a security signal.** A prompt-injection detector over
-   the description field returned 9 hits in 36 200 servers, and **all nine were
+   the description field returned 9 hits in 42 399 servers, and **all nine were
    false positives** — including two tools that audit against the **EU AI Act
    Article 50** and **California SB 243**. The detector flags the compliance
    tooling. The rejected patterns are kept in the code.
-3. **Namespace qualification is not a signal either** — 0 servers out of 36 200
+3. **Namespace qualification is not a signal either** — 0 servers out of 42 399
    lack a reverse-DNS namespace. The registry enforces it, so the column has no
    variance and discriminates nothing.
 
@@ -31,15 +31,17 @@ call it? This repository answers that with numbers instead of impressions.
 
 | Namespace | servers | source | package | endpoint | opaque |
 |---|---:|---:|---:|---:|---:|
-| `io.*` (mostly `io.github.*`) | 24,270 | 90.0 % | 53.2 % | 49.8 % | **8.1 %** |
+| `io.*` (mostly `io.github.*`) | 28,029 | 89.2 % | 53.4 % | 50.0 % | **8.7 %** |
 | `com.*` | 6,856 | 37.2 % | 14.3 % | 90.4 % | **60.3 %** |
 | `ai.*` | 1,878 | 46.2 % | 14.7 % | 89.9 % | **51.6 %** |
 | `dev.*` | 821 | 43.7 % | 21.6 % | 85.9 % | **52.0 %** |
-| `de.*` | 111 | 13.5 % | 4.5 % | 97.3 % | **85.6 %** |
+| `uk.*` | 319 | 10.7 % | 3.1 % | 97.2 % | **89.3 %** |
+| `live.*` | 92 | 7.6 % | 1.1 % | 100.0 % | **91.3 %** |
+| `guide.*` | 43 | 95.3 % | 0.0 % | 100.0 % | **4.7 %** |
 
-Frozen at 36,200 servers on 12 October 2026. The pass is incomplete — it stopped
-inside `io.github.*` — so the counts are lower bounds. The percentages per
-namespace are stable across completed namespaces.
+Complete pass on 12 October 2026: the cursor ran to empty, so this is the whole
+registry, not a sample. Across the 36 namespaces with at least 30 servers the
+opaque rate spans a factor of 19.
 
 ## A bug that will cost you 90 minutes
 
@@ -163,10 +165,14 @@ detector that returns noise here.
   published to one index, not what exists. Servers that were never registered,
   or were removed, are invisible here.
 - **`isLatest` is the registry's own claim.** It is taken at face value.
-- **The percentages move while the crawl runs.** Any figure quoted from a
-  partial pass is marked as such; the crawl is resumable and the script is the
-  method.
-- **Version churn comes from the partial pass** and is a lower bound.
+- **It is not an instantaneous snapshot.** The complete pass took about two hours
+  across two runs; a server published inside that window may be missed or counted
+  twice at the boundary.
+- **The counts are of the registry as it stood on 12 October 2026.** The pass is
+  complete — the cursor ran to empty — but the registry keeps growing, so rerun
+  the two commands rather than quoting these numbers as current.
+- **Version churn comes from the other pass** (every version, not just the
+  latest), which was still running when this was written.
 - **No runtime claim is made anywhere.** A server with a repository is not
   thereby safe, and an opaque one is not thereby malicious. The census measures
   what is *inspectable*, which is a different question from what is *safe*.

@@ -1,8 +1,9 @@
-# Recensement du registre MCP officiel — premier passage
+# Recensement du registre MCP officiel
 
-**12 octobre 2026** — jeu de données gelé à **36 200 serveurs** (version la plus récente de chacun),
-extrait du registre officiel `registry.modelcontextprotocol.io` (version 1.8.1).
-Collecte reproductible en deux commandes, sans dépendance hors bibliothèque standard.
+**12 octobre 2026** — passage **complet** : **42 399 serveurs**, la version la plus récente de chacun,
+lus depuis le registre officiel `registry.modelcontextprotocol.io` (version 1.8.1). Le curseur de
+pagination est allé jusqu'au bout : c'est le registre entier, pas un échantillon.
+Reproductible en deux commandes, sans dépendance hors bibliothèque standard.
 
 Le registre est public, l'API est publique, et **personne n'avait publié ce qu'il contient
 réellement**. Ce document le mesure. Rien n'est exécuté, rien n'est contacté : tout est lu dans ce
@@ -12,54 +13,66 @@ que le registre déclare.
 
 ## 1. Le résultat principal : le registre n'est pas une population, c'en est deux
 
-J'ai d'abord calculé un chiffre global, et **il ne veut rien dire**. La raison est mécanique : le
-registre est paginé dans l'ordre alphabétique des espaces de nommage. Un passage partiel est donc un
-**préfixe de l'alphabet**, pas un échantillon aléatoire. Le taux de serveurs « opaques » — appelables
-mais sans code source ni paquet publié — dépend alors de l'endroit où le robot s'est arrêté.
+J'ai d'abord calculé un chiffre global. Il n'est plus faux maintenant que le passage est complet —
+26,0 % du registre est opaque — mais c'est **le chiffre le moins informatif de ce document**, parce
+qu'il fait la moyenne de deux populations qui n'ont presque rien en commun.
 
-Je peux le **prouver** au lieu de l'affirmer, parce que j'ai gelé le jeu de données deux fois :
+Je peux montrer pourquoi, parce que j'ai gelé le jeu de données trois fois pendant la collecte :
 
-| Gel | serveurs | opaque global | `com.*` opaque | `io.*` opaque |
+| Gel | serveurs | opaque global | `com.*` | `io.*` |
 |---|---:|---:|---:|---:|
-| 19 500 | **41,0 %** | 60,3 % | 14,1 % |
-| 36 200 | **24,6 %** | 60,3 % | 8,1 % |
+| partiel | 19 500 | **41,0 %** | 60,3 % | 14,1 % |
+| partiel | 36 200 | **24,6 %** | 60,3 % | 8,1 % |
+| **complet** | **42 399** | **26,0 %** | 60,3 % | 8,7 % |
 
-Même registre, même code, même question. Le chiffre global a chuté de 16 points **parce que le robot
-a avancé dans l'alphabet** et ramassé davantage de serveurs `io.github.*`. Les espaces de nommage
-déjà terminés, eux, n'ont pas bougé d'un dixième de point. **Le chiffre global mesure l'avancement de
-la collecte, pas le registre.**
+Même registre, même code, même question. Le chiffre global a fait **16 points vers le bas, puis est
+remonté**, parce que le robot a avancé dans l'alphabet et ramassé d'autres espaces de nommage.
+**Chaque espace de nommage déjà terminé est resté identique à la décimale près** — `com.*` est à
+60,3 % dans les trois.
+
+Autrement dit : si j'avais publié après le premier gel, j'aurais annoncé 41 %. Après le deuxième,
+24,6 %. Les deux auraient été faux, et affirmés avec assurance. C'est le piège des jeux de données
+paginés : la clé de tri n'est pas aléatoire, donc un passage partiel est un **préfixe**, pas un
+échantillon.
 
 Ventilé, l'écart est énorme :
 
 | Espace de nommage | serveurs | publie un dépôt | publie un paquet | expose un endpoint | **opaque** |
 |---|---:|---:|---:|---:|---:|
-| `io.*` (dont `io.github.*`) | 24 270 | 90,0 % | 53,2 % | 49,8 % | **8,1 %** |
+| `io.*` (dont `io.github.*`) | 28 029 | 89,2 % | 53,4 % | 50,0 % | **8,7 %** |
 | `com.*` | 6 856 | 37,2 % | 14,3 % | 90,4 % | **60,3 %** |
 | `ai.*` | 1 878 | 46,2 % | 14,7 % | 89,9 % | **51,6 %** |
 | `dev.*` | 821 | 43,7 % | 21,6 % | 85,9 % | **52,0 %** |
 | `app.*` | 781 | 42,8 % | 8,1 % | 94,9 % | **55,4 %** |
+| `uk.*` | 319 | 10,7 % | 3,1 % | 97,2 % | **89,3 %** |
+| `org.*` | 229 | 40,6 % | 14,0 % | 86,9 % | **57,2 %** |
 | `co.*` | 226 | 29,2 % | 12,8 % | 94,2 % | **67,7 %** |
+| `net.*` | 223 | 27,4 % | 13,9 % | 88,3 % | **65,5 %** |
 | `eu.*` | 179 | 75,4 % | 57,5 % | 45,3 % | **24,0 %** |
 | `de.*` | 111 | 13,5 % | 4,5 % | 97,3 % | **85,6 %** |
+| `live.*` | 92 | 7,6 % | 1,1 % | 100,0 % | **91,3 %** |
 | `fr.*` | 86 | 17,4 % | 2,3 % | 98,8 % | **81,4 %** |
 | `guide.*` | 43 | 95,3 % | 0,0 % | 100,0 % | **4,7 %** |
 
-Sur les 18 espaces de nommage comptant au moins 30 serveurs, le taux d'opacité va de **4,7 % à
-85,6 %** — un facteur 18.
+Sur les 36 espaces de nommage comptant au moins 30 serveurs, le taux d'opacité va de **4,7 % à
+91,3 %** — un facteur **19**.
 
 **La lecture.** Le registre héberge deux choses différentes sous la même API :
 
 - les serveurs **`io.github.*`**, c'est-à-dire du code hébergé sur GitHub, publié en paquet, versionné.
-  90 % donnent un dépôt, 53 % un paquet installable. Ce sont des bibliothèques.
-- les serveurs **`com.*`, `ai.*`, `app.*` et les suffixes nationaux**, c'est-à-dire des services
-  commerciaux. ~90 % exposent une URL et rien d'autre. Ce sont des points de terminaison.
+  89 % donnent un dépôt, 53 % un paquet installable. Ce sont des bibliothèques.
+- les serveurs **`com.*`, `ai.*`, `app.*`, `uk.*`, `live.*` et les suffixes nationaux**, c'est-à-dire
+  des services commerciaux. ~90 % exposent une URL et rien d'autre. Ce sont des points de terminaison.
 
 Ce ne sont pas les mêmes objets, et ils ne posent pas les mêmes questions. Une bibliothèque peut être
 lue, épinglée, comparée à sa source. Un point de terminaison commercial ne peut qu'être appelé.
+`live.*` — 100 % exposent un endpoint, 7,6 % donnent un dépôt, 91,3 % opaques — en est la forme la
+plus pure.
 
 **Conséquence pratique :** l'énoncé utilisable est **« dans les espaces commerciaux et nationaux, 50 à
-86 % des serveurs sont opaques ; dans `io.github.*`, 8 % »**. Toute publication qui cite une moyenne
-unique sur ce registre se trompe, y compris la mienne si je l'avais publiée telle quelle.
+91 % des serveurs sont opaques ; dans `io.github.*`, 8,7 % »**. Le 26,0 % à l'échelle du registre est
+arithmétiquement exact et pratiquement inutile, parce qu'il dépend entièrement du nombre de
+bibliothèques GitHub enregistrées ce mois-là.
 
 ---
 
@@ -92,7 +105,7 @@ SB 243 et le New York GBL Article 47**. Un détecteur qui signale les gens qui �
 de conformité ne renvoie pas seulement du bruit : **il pointe exactement la mauvaise population**.
 C'est le pire mode de défaillance possible pour un détecteur de sécurité.
 
-Après retrait des motifs fautifs, le détecteur renvoie **0 sur 36 200**.
+Après retrait des motifs fautifs, le détecteur renvoie **0 sur 42 399**.
 
 **Ce n'est pas un échec à cacher, c'est le résultat.** Le champ `description` du registre est écrit par
 l'éditeur, non vérifié, et il ne sépare pas un serveur malveillant d'un serveur légitime. Quiconque
@@ -106,7 +119,7 @@ vérifiable au lieu d'être effacé.
 ## 3. Le signal qui n'existe pas
 
 J'attendais de trouver des serveurs enregistrés sous un nom nu, sans espace de nommage inverse DNS —
-un signe d'amateurisme, et donc de risque. **Résultat : 0 sur 36 200. Aucune exception.**
+un signe d'amateurisme, et donc de risque. **Résultat : 0 sur 42 399. Aucune exception.**
 
 Le registre impose le préfixe. Un signal sans variance n'est pas un signal : la colonne est calculée,
 publiée, et ne discrimine rien. Je la garde pour que ce soit vérifiable, pas pour en tirer une
@@ -118,26 +131,21 @@ conclusion.
 
 | Mesure | Valeur |
 |---|---|
-| serveurs (version la plus récente) | 36 200 |
-| sans dépôt public | 9 656 (26,7 %) |
-| sans paquet publié | 21 571 (59,6 %) |
-| exposant un endpoint distant | 22 855 (63,1 %) |
-| **opaques** (endpoint, ni dépôt, ni paquet) | **8 893 (24,6 %)** |
-| paquets non épinglés | 1 317 (3,6 %) |
+| serveurs (version la plus récente) | 42 399 |
+| sans dépôt public | 11 951 (28,2 %) |
+| sans paquet publié | 25 435 (60,0 %) |
+| exposant un endpoint distant | 27 008 (63,7 %) |
+| **opaques** (endpoint, ni dépôt, ni paquet) | **11 013 (26,0 %)** |
+| paquets non épinglés | 1 549 (3,7 %) |
 | descriptions à formulation d'injection | **0** |
 | noms sans espace de nommage | **0** |
 
-**Transports** : `streamable-http` 22 169 · `sse` 929. Le transport SSE historique est en voie
+**Transports** : `streamable-http` 26 271 · `sse` 1 081. Le transport SSE historique est en voie
 d'extinction — moins de 4 % du parc.
 
-**Registres de paquets** : npm 9 458 · pypi 3 850 · oci 921 · mcpb 818 · nuget 133 · cargo 63.
-L'écosystème est massivement JavaScript et Python ; les paquets MCPB (bundles natifs) existent mais
-restent marginaux.
-
-**Churn de versions** (passage complet, 58 100 entrées, encore partiel) : un serveur,
-`ai.bowmark/bowmark`, apparaît **exactement 1 000 fois**. Le chiffre est rond, donc je ne l'affirme
-pas — soit une publication automatisée à chaque commit, soit un plafond côté registre. À vérifier
-avant de le citer. Les suivants sont 516 (`com.linkbreakers/mcp`), 350, 258, 242, 214.
+**Registres de paquets** : npm 10 882 · pypi 4 371 · mcpb 1 101 · oci 1 091 · nuget 146 · cargo 76.
+L'écosystème est massivement JavaScript et Python. Les paquets MCPB (bundles natifs) viennent de
+dépasser OCI — à surveiller, parce qu'un bundle natif n'est pas une installation en bac à sable.
 
 ---
 
@@ -150,21 +158,22 @@ un **frère** de `URLError`, pas un enfant. L'échec le plus probable d'une long
 précisément l'exception que la boucle n'attrapait pas.
 
 Le correctif : attraper `OSError` (qui couvre `URLError`, `ConnectionResetError` et les timeouts de
-socket) plus `http.client.HTTPException`, et augmenter le nombre de réessais. Un bug de code arrête
-toujours la collecte ; une connexion coupée, non. Si vous paginez ce registre, c'est la ligne qui vous
-coûtera une heure et demie.
+socket) plus `http.client.HTTPException`. Sur la reprise, la collecte a traversé un `502 Bad Gateway`
+et un `SSL: UNEXPECTED_EOF_WHILE_READING` sans perdre le passage. Un bug de code arrête toujours la
+collecte ; une connexion coupée, non. Si vous paginez ce registre, c'est la ligne qui vous coûtera
+une heure et demie.
 
 ---
 
 ## 6. Ce qu'il ne faut pas conclure
 
-- **Ce n'est pas un recensement exhaustif.** Le passage s'est arrêté à 36 200 serveurs, à l'intérieur
-  de `io.github.*`. Le décompte est une **borne inférieure**.
+- **Un index n'est pas une population.** Ceci compte ce qui a été publié à cet index le 12 octobre
+  2026, pas ce qui existe. Un serveur jamais enregistré, ou retiré, est invisible ici.
+- **Ce n'est pas un instantané.** Le passage complet a pris environ deux heures sur deux exécutions.
+  Un serveur publié pendant cette fenêtre peut être manqué ou compté deux fois à la frontière.
 - **Un serveur opaque n'est pas malveillant, et un serveur avec dépôt n'est pas sûr.** Ce recensement
   mesure ce qui est **inspectable**, ce qui n'est pas la même question que ce qui est **sûr**.
 - **`isLatest` est une déclaration du registre**, prise au pied de la lettre.
-- **Le registre n'est pas la population.** Il contient ce qui a été publié à cet index, pas ce qui
-  existe. Un serveur jamais enregistré, ou retiré, est invisible ici.
 - **Aucune exécution, aucun scan intrusif, aucun appel aux serveurs.** Uniquement de la lecture d'API.
 
 ---

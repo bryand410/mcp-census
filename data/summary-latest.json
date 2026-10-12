@@ -1,6 +1,6 @@
 {
-  "raw_records": 36200,
-  "latest_servers": 36200,
+  "raw_records": 42399,
+  "latest_servers": 42399,
   "versions_per_server_median": 1,
   "versions_per_server_max": 1,
   "top_version_churn": [
@@ -46,37 +46,37 @@
     ]
   ],
   "statuses": {
-    "active": 35738,
-    "deprecated": 462
+    "active": 41882,
+    "deprecated": 517
   },
-  "no_repository": 9656,
-  "no_repository_pct": 26.67,
+  "no_repository": 11951,
+  "no_repository_pct": 28.19,
   "repository_sources": {
-    "github": 26472,
-    "gitlab": 72
+    "github": 30365,
+    "gitlab": 83
   },
-  "no_packages": 21571,
-  "no_packages_pct": 59.59,
+  "no_packages": 25435,
+  "no_packages_pct": 59.99,
   "unqualified_namespace": 0,
   "unqualified_namespace_pct": 0.0,
-  "with_remotes": 22855,
-  "with_remotes_pct": 63.14,
-  "opaque_servers": 8893,
-  "opaque_servers_pct": 24.57,
+  "with_remotes": 27008,
+  "with_remotes_pct": 63.7,
+  "opaque_servers": 11013,
+  "opaque_servers_pct": 25.97,
   "transports": {
-    "streamable-http": 22169,
-    "sse": 929
+    "streamable-http": 26271,
+    "sse": 1081
   },
   "registries": {
-    "npm": 9458,
-    "pypi": 3850,
-    "oci": 921,
-    "mcpb": 818,
-    "nuget": 133,
-    "cargo": 63
+    "npm": 10882,
+    "pypi": 4371,
+    "mcpb": 1101,
+    "oci": 1091,
+    "nuget": 146,
+    "cargo": 76
   },
-  "unpinned_servers": 1317,
-  "unpinned_servers_pct": 3.64,
+  "unpinned_servers": 1549,
+  "unpinned_servers_pct": 3.65,
   "suspicious_phrase_servers": 0,
   "suspicious_phrase_pct": 0.0,
   "suspicious_examples": [],
@@ -88,11 +88,11 @@
   "descriptions_as_security_signal": "no usable signal: every raw keyword hit was checked by hand and was a false positive, so the description field cannot separate a malicious server from a legitimate one",
   "by_namespace": {
     "io": {
-      "servers": 24270,
-      "has_repository_pct": 90.0,
-      "has_packages_pct": 53.2,
-      "has_remotes_pct": 49.8,
-      "opaque_pct": 8.1
+      "servers": 28029,
+      "has_repository_pct": 89.2,
+      "has_packages_pct": 53.4,
+      "has_remotes_pct": 50.0,
+      "opaque_pct": 8.7
     },
     "com": {
       "servers": 6856,
@@ -122,12 +122,33 @@
       "has_remotes_pct": 94.9,
       "opaque_pct": 55.4
     },
+    "uk": {
+      "servers": 319,
+      "has_repository_pct": 10.7,
+      "has_packages_pct": 3.1,
+      "has_remotes_pct": 97.2,
+      "opaque_pct": 89.3
+    },
+    "org": {
+      "servers": 229,
+      "has_repository_pct": 40.6,
+      "has_packages_pct": 14.0,
+      "has_remotes_pct": 86.9,
+      "opaque_pct": 57.2
+    },
     "co": {
       "servers": 226,
       "has_repository_pct": 29.2,
       "has_packages_pct": 12.8,
       "has_remotes_pct": 94.2,
       "opaque_pct": 67.7
+    },
+    "net": {
+      "servers": 223,
+      "has_repository_pct": 27.4,
+      "has_packages_pct": 13.9,
+      "has_remotes_pct": 88.3,
+      "opaque_pct": 65.5
     },
     "eu": {
       "servers": 179,
@@ -136,12 +157,26 @@
       "has_remotes_pct": 45.3,
       "opaque_pct": 24.0
     },
+    "xyz": {
+      "servers": 121,
+      "has_repository_pct": 41.3,
+      "has_packages_pct": 20.7,
+      "has_remotes_pct": 90.1,
+      "opaque_pct": 52.9
+    },
     "de": {
       "servers": 111,
       "has_repository_pct": 13.5,
       "has_packages_pct": 4.5,
       "has_remotes_pct": 97.3,
       "opaque_pct": 85.6
+    },
+    "live": {
+      "servers": 92,
+      "has_repository_pct": 7.6,
+      "has_packages_pct": 1.1,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 91.3
     },
     "fr": {
       "servers": 86,
@@ -150,12 +185,47 @@
       "has_remotes_pct": 98.8,
       "opaque_pct": 81.4
     },
+    "sh": {
+      "servers": 83,
+      "has_repository_pct": 55.4,
+      "has_packages_pct": 15.7,
+      "has_remotes_pct": 90.4,
+      "opaque_pct": 41.0
+    },
+    "tech": {
+      "servers": 81,
+      "has_repository_pct": 38.3,
+      "has_packages_pct": 38.3,
+      "has_remotes_pct": 65.4,
+      "opaque_pct": 50.6
+    },
+    "me": {
+      "servers": 62,
+      "has_repository_pct": 46.8,
+      "has_packages_pct": 17.7,
+      "has_remotes_pct": 87.1,
+      "opaque_pct": 50.0
+    },
+    "pro": {
+      "servers": 58,
+      "has_repository_pct": 46.6,
+      "has_packages_pct": 6.9,
+      "has_remotes_pct": 96.6,
+      "opaque_pct": 53.4
+    },
     "cloud": {
       "servers": 54,
       "has_repository_pct": 42.6,
       "has_packages_pct": 16.7,
       "has_remotes_pct": 88.9,
       "opaque_pct": 53.7
+    },
+    "ru": {
+      "servers": 54,
+      "has_repository_pct": 37.0,
+      "has_packages_pct": 9.3,
+      "has_remotes_pct": 90.7,
+      "opaque_pct": 59.3
     },
     "br": {
       "servers": 52,
@@ -178,12 +248,40 @@
       "has_remotes_pct": 95.7,
       "opaque_pct": 73.9
     },
+    "one": {
+      "servers": 46,
+      "has_repository_pct": 17.4,
+      "has_packages_pct": 15.2,
+      "has_remotes_pct": 87.0,
+      "opaque_pct": 80.4
+    },
+    "site": {
+      "servers": 45,
+      "has_repository_pct": 15.6,
+      "has_packages_pct": 6.7,
+      "has_remotes_pct": 97.8,
+      "opaque_pct": 82.2
+    },
     "guide": {
       "servers": 43,
       "has_repository_pct": 95.3,
       "has_packages_pct": 0.0,
       "has_remotes_pct": 100.0,
       "opaque_pct": 4.7
+    },
+    "jp": {
+      "servers": 42,
+      "has_repository_pct": 11.9,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 88.1
+    },
+    "online": {
+      "servers": 42,
+      "has_repository_pct": 38.1,
+      "has_packages_pct": 9.5,
+      "has_remotes_pct": 92.9,
+      "opaque_pct": 59.5
     },
     "au": {
       "servers": 40,
@@ -199,12 +297,40 @@
       "has_remotes_pct": 92.5,
       "opaque_pct": 62.5
     },
+    "so": {
+      "servers": 37,
+      "has_repository_pct": 29.7,
+      "has_packages_pct": 13.5,
+      "has_remotes_pct": 94.6,
+      "opaque_pct": 67.6
+    },
     "cn": {
       "servers": 34,
       "has_repository_pct": 61.8,
       "has_packages_pct": 8.8,
       "has_remotes_pct": 88.2,
       "opaque_pct": 35.3
+    },
+    "kr": {
+      "servers": 34,
+      "has_repository_pct": 20.6,
+      "has_packages_pct": 8.8,
+      "has_remotes_pct": 97.1,
+      "opaque_pct": 79.4
+    },
+    "us": {
+      "servers": 34,
+      "has_repository_pct": 23.5,
+      "has_packages_pct": 8.8,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 76.5
+    },
+    "nl": {
+      "servers": 32,
+      "has_repository_pct": 21.9,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 78.1
     },
     "info": {
       "servers": 30,
@@ -213,12 +339,40 @@
       "has_remotes_pct": 100.0,
       "opaque_pct": 83.3
     },
+    "it": {
+      "servers": 28,
+      "has_repository_pct": 25.0,
+      "has_packages_pct": 7.1,
+      "has_remotes_pct": 96.4,
+      "opaque_pct": 75.0
+    },
+    "network": {
+      "servers": 28,
+      "has_repository_pct": 75.0,
+      "has_packages_pct": 14.3,
+      "has_remotes_pct": 96.4,
+      "opaque_pct": 25.0
+    },
+    "tools": {
+      "servers": 28,
+      "has_repository_pct": 42.9,
+      "has_packages_pct": 14.3,
+      "has_remotes_pct": 96.4,
+      "opaque_pct": 46.4
+    },
     "cc": {
       "servers": 27,
       "has_repository_pct": 37.0,
       "has_packages_pct": 11.1,
       "has_remotes_pct": 88.9,
       "opaque_pct": 63.0
+    },
+    "space": {
+      "servers": 27,
+      "has_repository_pct": 14.8,
+      "has_packages_pct": 7.4,
+      "has_remotes_pct": 96.3,
+      "opaque_pct": 85.2
     },
     "fyi": {
       "servers": 26,
@@ -234,12 +388,68 @@
       "has_remotes_pct": 100.0,
       "opaque_pct": 88.0
     },
+    "pl": {
+      "servers": 23,
+      "has_repository_pct": 43.5,
+      "has_packages_pct": 17.4,
+      "has_remotes_pct": 95.7,
+      "opaque_pct": 56.5
+    },
+    "studio": {
+      "servers": 23,
+      "has_repository_pct": 26.1,
+      "has_packages_pct": 21.7,
+      "has_remotes_pct": 87.0,
+      "opaque_pct": 69.6
+    },
+    "run": {
+      "servers": 22,
+      "has_repository_pct": 63.6,
+      "has_packages_pct": 13.6,
+      "has_remotes_pct": 81.8,
+      "opaque_pct": 31.8
+    },
     "es": {
       "servers": 21,
       "has_repository_pct": 33.3,
       "has_packages_pct": 9.5,
       "has_remotes_pct": 95.2,
       "opaque_pct": 66.7
+    },
+    "no": {
+      "servers": 21,
+      "has_repository_pct": 38.1,
+      "has_packages_pct": 14.3,
+      "has_remotes_pct": 90.5,
+      "opaque_pct": 57.1
+    },
+    "nz": {
+      "servers": 19,
+      "has_repository_pct": 31.6,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 68.4
+    },
+    "si": {
+      "servers": 19,
+      "has_repository_pct": 15.8,
+      "has_packages_pct": 10.5,
+      "has_remotes_pct": 94.7,
+      "opaque_pct": 84.2
+    },
+    "page": {
+      "servers": 18,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 5.6,
+      "has_remotes_pct": 94.4,
+      "opaque_pct": 61.1
+    },
+    "se": {
+      "servers": 18,
+      "has_repository_pct": 11.1,
+      "has_packages_pct": 5.6,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 83.3
     },
     "finance": {
       "servers": 16,
@@ -248,12 +458,33 @@
       "has_remotes_pct": 81.2,
       "opaque_pct": 43.8
     },
+    "to": {
+      "servers": 16,
+      "has_repository_pct": 43.8,
+      "has_packages_pct": 12.5,
+      "has_remotes_pct": 93.8,
+      "opaque_pct": 50.0
+    },
+    "work": {
+      "servers": 16,
+      "has_repository_pct": 37.5,
+      "has_packages_pct": 6.2,
+      "has_remotes_pct": 93.8,
+      "opaque_pct": 62.5
+    },
     "bot": {
       "servers": 15,
       "has_repository_pct": 33.3,
       "has_packages_pct": 13.3,
       "has_remotes_pct": 86.7,
       "opaque_pct": 60.0
+    },
+    "world": {
+      "servers": 15,
+      "has_repository_pct": 60.0,
+      "has_packages_pct": 13.3,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 40.0
     },
     "art": {
       "servers": 14,
@@ -283,6 +514,20 @@
       "has_remotes_pct": 100.0,
       "opaque_pct": 100.0
     },
+    "link": {
+      "servers": 14,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 14.3,
+      "has_remotes_pct": 85.7,
+      "opaque_pct": 50.0
+    },
+    "top": {
+      "servers": 14,
+      "has_repository_pct": 28.6,
+      "has_packages_pct": 14.3,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 64.3
+    },
     "gg": {
       "servers": 13,
       "has_repository_pct": 30.8,
@@ -296,6 +541,34 @@
       "has_packages_pct": 7.7,
       "has_remotes_pct": 100.0,
       "opaque_pct": 53.8
+    },
+    "services": {
+      "servers": 13,
+      "has_repository_pct": 84.6,
+      "has_packages_pct": 84.6,
+      "has_remotes_pct": 15.4,
+      "opaque_pct": 15.4
+    },
+    "tv": {
+      "servers": 13,
+      "has_repository_pct": 61.5,
+      "has_packages_pct": 38.5,
+      "has_remotes_pct": 76.9,
+      "opaque_pct": 38.5
+    },
+    "md": {
+      "servers": 12,
+      "has_repository_pct": 41.7,
+      "has_packages_pct": 8.3,
+      "has_remotes_pct": 91.7,
+      "opaque_pct": 58.3
+    },
+    "news": {
+      "servers": 12,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
     },
     "ar": {
       "servers": 11,
@@ -339,6 +612,27 @@
       "has_remotes_pct": 100.0,
       "opaque_pct": 40.0
     },
+    "ro": {
+      "servers": 10,
+      "has_repository_pct": 10.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 90.0
+    },
+    "store": {
+      "servers": 10,
+      "has_repository_pct": 40.0,
+      "has_packages_pct": 10.0,
+      "has_remotes_pct": 90.0,
+      "opaque_pct": 60.0
+    },
+    "trade": {
+      "servers": 10,
+      "has_repository_pct": 30.0,
+      "has_packages_pct": 10.0,
+      "has_remotes_pct": 90.0,
+      "opaque_pct": 60.0
+    },
     "club": {
       "servers": 9,
       "has_repository_pct": 44.4,
@@ -359,6 +653,34 @@
       "has_packages_pct": 11.1,
       "has_remotes_pct": 100.0,
       "opaque_pct": 77.8
+    },
+    "media": {
+      "servers": 9,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 66.7
+    },
+    "mx": {
+      "servers": 9,
+      "has_repository_pct": 22.2,
+      "has_packages_pct": 11.1,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 77.8
+    },
+    "my": {
+      "servers": 9,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 66.7
+    },
+    "sk": {
+      "servers": 9,
+      "has_repository_pct": 11.1,
+      "has_packages_pct": 11.1,
+      "has_remotes_pct": 88.9,
+      "opaque_pct": 88.9
     },
     "ae": {
       "servers": 8,
@@ -381,6 +703,48 @@
       "has_remotes_pct": 87.5,
       "opaque_pct": 62.5
     },
+    "lol": {
+      "servers": 8,
+      "has_repository_pct": 37.5,
+      "has_packages_pct": 37.5,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "lt": {
+      "servers": 8,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "market": {
+      "servers": 8,
+      "has_repository_pct": 37.5,
+      "has_packages_pct": 12.5,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 62.5
+    },
+    "markets": {
+      "servers": 8,
+      "has_repository_pct": 25.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 75.0
+    },
+    "today": {
+      "servers": 8,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 12.5,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "vn": {
+      "servers": 8,
+      "has_repository_pct": 62.5,
+      "has_packages_pct": 50.0,
+      "has_remotes_pct": 50.0,
+      "opaque_pct": 37.5
+    },
     "biz": {
       "servers": 7,
       "has_repository_pct": 28.6,
@@ -401,6 +765,34 @@
       "has_packages_pct": 0.0,
       "has_remotes_pct": 100.0,
       "opaque_pct": 57.1
+    },
+    "pt": {
+      "servers": 7,
+      "has_repository_pct": 14.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 85.7
+    },
+    "rs": {
+      "servers": 7,
+      "has_repository_pct": 42.9,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 57.1
+    },
+    "social": {
+      "servers": 7,
+      "has_repository_pct": 42.9,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 57.1
+    },
+    "tw": {
+      "servers": 7,
+      "has_repository_pct": 28.6,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 71.4
     },
     "be": {
       "servers": 6,
@@ -451,6 +843,27 @@
       "has_remotes_pct": 100.0,
       "opaque_pct": 50.0
     },
+    "team": {
+      "servers": 6,
+      "has_repository_pct": 83.3,
+      "has_packages_pct": 33.3,
+      "has_remotes_pct": 66.7,
+      "opaque_pct": 16.7
+    },
+    "video": {
+      "servers": 6,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 16.7,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 66.7
+    },
+    "za": {
+      "servers": 6,
+      "has_repository_pct": 16.7,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 83.3
+    },
     "bid": {
       "servers": 5,
       "has_repository_pct": 100.0,
@@ -500,6 +913,83 @@
       "has_remotes_pct": 100.0,
       "opaque_pct": 80.0
     },
+    "land": {
+      "servers": 5,
+      "has_repository_pct": 80.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 20.0
+    },
+    "legal": {
+      "servers": 5,
+      "has_repository_pct": 20.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 80.0
+    },
+    "ltd": {
+      "servers": 5,
+      "has_repository_pct": 20.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 80.0
+    },
+    "lv": {
+      "servers": 5,
+      "has_repository_pct": 20.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 80.0
+    },
+    "now": {
+      "servers": 5,
+      "has_repository_pct": 40.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 60.0
+    },
+    "st": {
+      "servers": 5,
+      "has_repository_pct": 60.0,
+      "has_packages_pct": 20.0,
+      "has_remotes_pct": 80.0,
+      "opaque_pct": 20.0
+    },
+    "technology": {
+      "servers": 5,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "travel": {
+      "servers": 5,
+      "has_repository_pct": 40.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 60.0
+    },
+    "uz": {
+      "servers": 5,
+      "has_repository_pct": 20.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 80.0
+    },
+    "win": {
+      "servers": 5,
+      "has_repository_pct": 20.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 80.0
+    },
+    "works": {
+      "servers": 5,
+      "has_repository_pct": 40.0,
+      "has_packages_pct": 20.0,
+      "has_remotes_pct": 80.0,
+      "opaque_pct": 60.0
+    },
     "cash": {
       "servers": 4,
       "has_repository_pct": 50.0,
@@ -541,6 +1031,62 @@
       "has_packages_pct": 0.0,
       "has_remotes_pct": 100.0,
       "opaque_pct": 100.0
+    },
+    "is": {
+      "servers": 4,
+      "has_repository_pct": 75.0,
+      "has_packages_pct": 25.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 25.0
+    },
+    "life": {
+      "servers": 4,
+      "has_repository_pct": 25.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 75.0
+    },
+    "money": {
+      "servers": 4,
+      "has_repository_pct": 75.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 25.0
+    },
+    "ng": {
+      "servers": 4,
+      "has_repository_pct": 25.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 75.0
+    },
+    "shop": {
+      "servers": 4,
+      "has_repository_pct": 25.0,
+      "has_packages_pct": 25.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 75.0
+    },
+    "software": {
+      "servers": 4,
+      "has_repository_pct": 25.0,
+      "has_packages_pct": 25.0,
+      "has_remotes_pct": 75.0,
+      "opaque_pct": 75.0
+    },
+    "support": {
+      "servers": 4,
+      "has_repository_pct": 75.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 25.0
+    },
+    "website": {
+      "servers": 4,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 25.0,
+      "has_remotes_pct": 75.0,
+      "opaque_pct": 75.0
     },
     "ac": {
       "servers": 3,
@@ -653,6 +1199,118 @@
       "has_packages_pct": 33.3,
       "has_remotes_pct": 66.7,
       "opaque_pct": 33.3
+    },
+    "kz": {
+      "servers": 3,
+      "has_repository_pct": 66.7,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 33.3
+    },
+    "lat": {
+      "servers": 3,
+      "has_repository_pct": 66.7,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 33.3
+    },
+    "law": {
+      "servers": 3,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "love": {
+      "servers": 3,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 66.7
+    },
+    "pe": {
+      "servers": 3,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "pw": {
+      "servers": 3,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 33.3,
+      "has_remotes_pct": 66.7,
+      "opaque_pct": 33.3
+    },
+    "sa": {
+      "servers": 3,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 66.7
+    },
+    "science": {
+      "servers": 3,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "sg": {
+      "servers": 3,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "solutions": {
+      "servers": 3,
+      "has_repository_pct": 66.7,
+      "has_packages_pct": 33.3,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 33.3
+    },
+    "stream": {
+      "servers": 3,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "tel": {
+      "servers": 3,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 66.7
+    },
+    "ua": {
+      "servers": 3,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 66.7
+    },
+    "vc": {
+      "servers": 3,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 66.7
+    },
+    "vip": {
+      "servers": 3,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 33.3,
+      "has_remotes_pct": 66.7,
+      "opaque_pct": 66.7
+    },
+    "wiki": {
+      "servers": 3,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
     },
     "ad": {
       "servers": 2,
@@ -890,6 +1548,209 @@
       "has_repository_pct": 0.0,
       "has_packages_pct": 50.0,
       "has_remotes_pct": 50.0,
+      "opaque_pct": 50.0
+    },
+    "ir": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "jobs": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "ke": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "la": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "lighting": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "ly": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 50.0,
+      "has_remotes_pct": 50.0,
+      "opaque_pct": 50.0
+    },
+    "ma": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "mk": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "music": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "new": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "observer": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "plus": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "press": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 50.0,
+      "has_remotes_pct": 50.0,
+      "opaque_pct": 50.0
+    },
+    "pub": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "realestate": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "report": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "rocks": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "sr": {
+      "servers": 2,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "study": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "su": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 50.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "sv": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "tennis": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "town": {
+      "servers": 2,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "tr": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "watch": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "wedding": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "wine": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "ws": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "zone": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
       "opaque_pct": 50.0
     },
     "aero": {
@@ -1185,8 +2046,386 @@
       "has_packages_pct": 0.0,
       "has_remotes_pct": 100.0,
       "opaque_pct": 0.0
+    },
+    "ist": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "kitchen": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "lk": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 100.0,
+      "has_remotes_pct": 0.0,
+      "opaque_pct": 0.0
+    },
+    "llc": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "london": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "ls": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "lu": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "makeup": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "management": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "mn": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "moda": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "monster": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "mu": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "name": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "ninja": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "nyc": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "partners": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "pics": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "pizza": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "pk": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "place": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "porn": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "properties": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "qpon": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "quest": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "re": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "red": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "rentals": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "reviews": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "rsvp": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "rw": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "sbs": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "school": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "style": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "surf": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 100.0,
+      "has_remotes_pct": 0.0,
+      "opaque_pct": 0.0
+    },
+    "swiss": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "systems": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "talk": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "tax": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "taxi": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "tc": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "th": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "tickets": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "tips": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "tours": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "trading": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "training": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "uno": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "vet": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "vin": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "vision": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "vote": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "xn--3ds443g": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "zip": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
     }
   },
-  "opaque_pct_spread": "4.7 to 85.6 (namespaces with at least 30 servers)",
+  "opaque_pct_spread": "4.7 to 91.3 (namespaces with at least 30 servers)",
   "by_namespace_min_servers": 30
 }

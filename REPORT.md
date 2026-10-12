@@ -1,7 +1,8 @@
-# A census of the official MCP Registry — first pass
+# A census of the official MCP Registry
 
-**12 October 2026** — dataset frozen at **36,200 servers** (each server's latest version), read from
-the official registry at `registry.modelcontextprotocol.io` (v1.8.1).
+**12 October 2026** — **complete** pass: **42,399 servers**, each server's latest version, read from
+the official registry at `registry.modelcontextprotocol.io` (v1.8.1). The pagination cursor ran to
+empty, so this is the whole registry, not a sample.
 Reproducible in two commands, no dependencies outside the standard library.
 
 The registry is public, the API is public, and **nobody had published what is actually in it**. This
@@ -12,53 +13,64 @@ registry declares about itself.
 
 ## 1. The main result: this is not one population, it is two
 
-I computed a single blended figure first, and **it means nothing**. The reason is mechanical: the
-registry is paginated in alphabetical order of namespace. A partial pass is therefore a **prefix of
-the alphabet**, not a random sample. The share of "opaque" servers — callable, but publishing neither
-source nor package — then depends on where the crawler stopped.
+I computed a single blended figure first. It is **not** meaningless now that the pass is complete —
+26.0 % of the registry is opaque — but it is the **least** informative number in this document,
+because it averages over two populations that have almost nothing in common.
 
-I can prove this rather than assert it, because I froze the dataset twice:
+I can show why, because I froze the dataset three times during the crawl:
 
 | Snapshot | servers | aggregate opaque | `com.*` opaque | `io.*` opaque |
 |---|---:|---:|---:|---:|
-| 19,500 | **41.0 %** | 60.3 % | 14.1 % |
-| 36,200 | **24.6 %** | 60.3 % | 8.1 % |
+| partial | 19,500 | **41.0 %** | 60.3 % | 14.1 % |
+| partial | 36,200 | **24.6 %** | 60.3 % | 8.1 % |
+| **complete** | **42,399** | **26.0 %** | 60.3 % | 8.7 % |
 
-Same registry, same code, same question. The aggregate fell by 16 points because the crawler walked
-further into the alphabet and picked up more `io.github.*` servers. The completed namespaces did not
-move at all. **The aggregate is a measurement of the crawl's progress, not of the registry.**
+Same registry, same code, same question. The aggregate swung **16 points down and then up** because
+the crawler walked further into the alphabet and picked up different namespaces. **Every completed
+namespace stayed identical to one decimal place** — `com.*` is 60.3 % in all three.
+
+So: had I published after the first snapshot I would have said 41 %. After the second, 24.6 %. Both
+would have been wrong, and confidently so. That is the trap of paginated datasets: the ordering key
+is not random, so a partial pass is a prefix, not a sample.
 
 Split by namespace, the gap is enormous:
 
 | Namespace | servers | publishes source | publishes a package | exposes an endpoint | **opaque** |
 |---|---:|---:|---:|---:|---:|
-| `io.*` (mostly `io.github.*`) | 24,270 | 90.0 % | 53.2 % | 49.8 % | **8.1 %** |
+| `io.*` (mostly `io.github.*`) | 28,029 | 89.2 % | 53.4 % | 50.0 % | **8.7 %** |
 | `com.*` | 6,856 | 37.2 % | 14.3 % | 90.4 % | **60.3 %** |
 | `ai.*` | 1,878 | 46.2 % | 14.7 % | 89.9 % | **51.6 %** |
 | `dev.*` | 821 | 43.7 % | 21.6 % | 85.9 % | **52.0 %** |
 | `app.*` | 781 | 42.8 % | 8.1 % | 94.9 % | **55.4 %** |
+| `uk.*` | 319 | 10.7 % | 3.1 % | 97.2 % | **89.3 %** |
+| `org.*` | 229 | 40.6 % | 14.0 % | 86.9 % | **57.2 %** |
 | `co.*` | 226 | 29.2 % | 12.8 % | 94.2 % | **67.7 %** |
+| `net.*` | 223 | 27.4 % | 13.9 % | 88.3 % | **65.5 %** |
 | `eu.*` | 179 | 75.4 % | 57.5 % | 45.3 % | **24.0 %** |
 | `de.*` | 111 | 13.5 % | 4.5 % | 97.3 % | **85.6 %** |
+| `live.*` | 92 | 7.6 % | 1.1 % | 100.0 % | **91.3 %** |
 | `fr.*` | 86 | 17.4 % | 2.3 % | 98.8 % | **81.4 %** |
 | `guide.*` | 43 | 95.3 % | 0.0 % | 100.0 % | **4.7 %** |
 
-Across the 18 namespaces with at least 30 servers, the opaque rate runs from **4.7 % to 85.6 %** — a
-factor of 18.
+Across the 36 namespaces with at least 30 servers, the opaque rate runs from **4.7 % to 91.3 %** — a
+factor of **19**.
 
 **How to read it.** The registry hosts two different things behind one API:
 
-- **`io.github.*` servers** — code hosted on GitHub, published as a package, versioned. 90 % name a
+- **`io.github.*` servers** — code hosted on GitHub, published as a package, versioned. 89 % name a
   repository, 53 % ship an installable artefact. These are libraries.
-- **`com.*`, `ai.*`, `app.*` and country-code servers** — commercial services. ~90 % expose a URL and
-  nothing else. These are endpoints.
+- **`com.*`, `ai.*`, `app.*`, `uk.*`, `live.*` and country-code servers** — commercial services.
+  ~90 % expose a URL and nothing else. These are endpoints.
 
 They are not the same kind of object and they do not raise the same question. A library can be read,
-pinned, and diffed against its source. A commercial endpoint can only be called.
+pinned, and diffed against its source. A commercial endpoint can only be called. `live.*` — 100 % of
+them expose an endpoint, 7.6 % name a repository, 91.3 % are opaque — is the purest form of the
+second kind.
 
 **The practical consequence:** the usable statement is **"in commercial and country-code namespaces,
-50–86 % of servers are opaque; in `io.github.*`, 8 %"**. Any write-up that quotes a single average
-over this registry is wrong — including mine, had I published it as it first stood.
+50–91 % of servers are opaque; in `io.github.*`, 8.7 %"**. The registry-wide 26.0 % is arithmetically
+correct and practically useless, because it depends entirely on how many GitHub libraries happen to
+have been registered that month.
 
 ---
 
@@ -91,7 +103,7 @@ GBL Article 47**. A detector that flags the people writing the compliance checks
 useless; it points at exactly the wrong population. That is the worst failure mode a security
 detector can have.
 
-With the offending patterns removed, the detector returns **0 out of 36,200**.
+With the offending patterns removed, the detector returns **0 out of 42,399**.
 
 **This is not a failure to hide; it is the result.** The registry's `description` field is written by
 the publisher, is unverified, and does not separate a malicious server from a legitimate one. Anyone
@@ -105,7 +117,7 @@ checkable instead of being quietly deleted.
 ## 3. The signal that does not exist
 
 I expected to find servers registered under a bare name, with no reverse-DNS namespace — a sign of
-improvisation, and therefore of risk. **Result: 0 out of 36,200. No exceptions.**
+improvisation, and therefore of risk. **Result: 0 out of 42,399. No exceptions.**
 
 The registry enforces the prefix. A signal with no variance is not a signal: the column is computed,
 published, and discriminates nothing. It stays in the output so the claim is checkable, not so a
@@ -117,25 +129,21 @@ conclusion can be drawn from it.
 
 | Measure | Value |
 |---|---|
-| servers (latest version each) | 36,200 |
-| no public repository | 9,656 (26.7 %) |
-| no published package | 21,571 (59.6 %) |
-| exposes a remote endpoint | 22,855 (63.1 %) |
-| **opaque** (endpoint, no source, no package) | **8,893 (24.6 %)** |
-| unpinned packages | 1,317 (3.6 %) |
+| servers (latest version each) | 42,399 |
+| no public repository | 11,951 (28.2 %) |
+| no published package | 25,435 (60.0 %) |
+| exposes a remote endpoint | 27,008 (63.7 %) |
+| **opaque** (endpoint, no source, no package) | **11,013 (26.0 %)** |
+| unpinned packages | 1,549 (3.7 %) |
 | descriptions with injection wording | **0** |
 | names without a namespace | **0** |
 
-**Transports:** `streamable-http` 22,169 · `sse` 929. The legacy SSE transport is on its way out —
+**Transports:** `streamable-http` 26,271 · `sse` 1,081. The legacy SSE transport is on its way out —
 under 4 % of the fleet.
 
-**Package registries:** npm 9,458 · pypi 3,850 · oci 921 · mcpb 818 · nuget 133 · cargo 63. The
-ecosystem is overwhelmingly JavaScript and Python; MCPB (native bundles) exist but remain marginal.
-
-**Version churn** (full pass, 58,100 records and still partial): one server, `ai.bowmark/bowmark`,
-appears **exactly 1,000 times**. The figure is round, so I am not asserting it — either automated
-publication on every commit, or a cap on the registry side. Worth checking before quoting. The next
-highest are 516 (`com.linkbreakers/mcp`), 350, 258, 242, 214.
+**Package registries:** npm 10,882 · pypi 4,371 · mcpb 1,101 · oci 1,091 · nuget 146 · cargo 76. The
+ecosystem is overwhelmingly JavaScript and Python. MCPB (native bundles) has now passed OCI — worth
+watching, because a native bundle is not a sandboxed install.
 
 ---
 
@@ -148,21 +156,22 @@ connection mid-response — after 1 h 16 and 1 h 37 of work. The retry loop caug
 one exception the loop did not catch.
 
 The fix is to catch `OSError` (which covers `URLError`, `ConnectionResetError` and plain socket
-timeouts) plus `http.client.HTTPException`, and to raise the retry count. A code bug still stops the
-crawl; a dropped connection no longer does. If you are paginating this registry, that is the line
-that will bite you.
+timeouts) plus `http.client.HTTPException`. On the resumed run it rode through `502 Bad Gateway` and
+`SSL: UNEXPECTED_EOF_WHILE_READING` without losing the pass. A code bug still stops the crawl; a
+dropped connection no longer does. If you are paginating this registry, that is the line that will
+bite you.
 
 ---
 
 ## 6. What not to conclude
 
-- **This is not exhaustive.** The pass stopped at 36,200 servers, inside `io.github.*`. The count is a
-  **lower bound**.
+- **A registry listing is not a population.** This counts what was published to this index on
+  12 October 2026, not what exists. Servers never registered, or withdrawn, are invisible here.
+- **It is not an instantaneous snapshot.** The complete pass took about two hours across two runs.
+  Servers published during that window may be missed or counted twice at the boundary.
 - **An opaque server is not malicious, and a server with a repository is not safe.** This census
   measures what is **inspectable**, which is a different question from what is **safe**.
 - **`isLatest` is the registry's own claim**, taken at face value.
-- **The registry is not the population.** It contains what was published to this index, not what
-  exists. A server never registered, or withdrawn, is invisible here.
 - **No execution, no intrusive scanning, no calls to any server.** API reads only.
 
 ---
