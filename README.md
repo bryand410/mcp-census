@@ -7,6 +7,38 @@ The question behind it is narrow and practical. If you are about to point an
 agent at an MCP server, what can the registry tell you about it **before** you
 call it? This repository answers that with numbers instead of impressions.
 
+**Read the write-up:** [REPORT.md](REPORT.md) (English) ·
+[REPORT.fr.md](REPORT.fr.md) (français)
+
+## What it found, in three lines
+
+1. **The registry is two populations, and the average is meaningless.** Opaque
+   servers — callable, publishing neither source nor package — run from **4.7 %**
+   in `guide.*` to **85.6 %** in `de.*`. `io.github.*` is 14 % opaque; `com.*` is
+   60 %. A single blended figure describes the crawl's alphabetical position, not
+   the registry.
+2. **Descriptions are not a security signal.** A prompt-injection detector over
+   the description field returned 6 hits in 19 500 servers, and **all six were
+   false positives** — read individually, they are tools that *generate* or
+   *audit* system prompts. The rejected patterns are kept in the code.
+3. **Namespace qualification is not a signal either** — 0 servers out of 19 500
+   lack a reverse-DNS namespace. The registry enforces it, so the column has no
+   variance and discriminates nothing.
+
+## The registry is not one population
+
+| Namespace | servers | source | package | endpoint | opaque |
+|---|---:|---:|---:|---:|---:|
+| `io.*` (mostly `io.github.*`) | 7,570 | 83.3 % | 63.2 % | 41.1 % | **14.1 %** |
+| `com.*` | 6,856 | 37.2 % | 14.3 % | 90.4 % | **60.3 %** |
+| `ai.*` | 1,878 | 46.2 % | 14.7 % | 89.9 % | **51.6 %** |
+| `dev.*` | 821 | 43.7 % | 21.6 % | 85.9 % | **52.0 %** |
+| `de.*` | 111 | 13.5 % | 4.5 % | 97.3 % | **85.6 %** |
+
+Frozen at 19,500 servers on 12 October 2026. The pass is incomplete — it stopped
+inside `io.github.*` — so the counts are lower bounds. The percentages per
+namespace are stable across completed namespaces.
+
 ## What the registry is
 
 `https://registry.modelcontextprotocol.io/v0/servers` is the official index of
