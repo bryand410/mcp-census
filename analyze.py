@@ -59,6 +59,10 @@ INJECTION_PATTERNS = [
 # is auditable.
 REJECTED_PATTERNS = [r"system prompt", r"you are now"]
 
+# A namespace needs at least this many servers before its rate is worth
+# comparing. Below it, 0% and 100% are one server either way.
+MIN_NS = 30
+
 
 def load(path: pathlib.Path) -> list[dict]:
     records = []
@@ -83,6 +87,47 @@ def namespace(name: str) -> tuple[str, bool]:
     if "/" in name:
         return name.split("/", 1)[0], True
     return "", False
+
+
+def top_namespace(name: str) -> str:
+    """The first label of the reverse-DNS namespace: 'io.github.x/y' -> 'io'."""
+    ns, qualified = namespace(name)
+    return ns.split(".", 1)[0] if qualified else "(none)"
+
+
+def by_namespace(servers: list[dict]) -> dict:
+    """Per-namespace breakdown, because the aggregate is not stable.
+
+    The registry is paginated in namespace order, so any partial pass is a
+    prefix of the alphabet rather than a random sample. The opaque rate ranges
+    from a few percent to over eighty depending on the namespace, which means a
+    single blended figure describes the crawl's progress more than it describes
+    the registry. This table is the honest version.
+    """
+    buckets: dict[str, dict[str, int]] = {}
+    for row in servers:
+        bucket = buckets.setdefault(
+            top_namespace(row["name"]),
+            {"n": 0, "repo": 0, "pkg": 0, "remote": 0, "opaque": 0},
+        )
+        opaque = not row["has_repository"] and not row["has_packages"] and row["has_remotes"]
+        bucket["n"] += 1
+        bucket["repo"] += bool(row["has_repository"])
+        bucket["pkg"] += bool(row["has_packages"])
+        bucket["remote"] += bool(row["has_remotes"])
+        bucket["opaque"] += opaque
+
+    out = {}
+    for ns, b in sorted(buckets.items(), key=lambda kv: -kv[1]["n"]):
+        n = b["n"]
+        out[ns] = {
+            "servers": n,
+            "has_repository_pct": round(100.0 * b["repo"] / n, 1),
+            "has_packages_pct": round(100.0 * b["pkg"] / n, 1),
+            "has_remotes_pct": round(100.0 * b["remote"] / n, 1),
+            "opaque_pct": round(100.0 * b["opaque"] / n, 1),
+        }
+    return out
 
 
 def analyse(records: list[dict]) -> tuple[list[dict], dict]:
@@ -170,6 +215,9 @@ def analyse(records: list[dict]) -> tuple[list[dict], dict]:
         if any(re.search(p, description) for p in REJECTED_PATTERNS):
             rejected_hits += 1
 
+    ns_table = by_namespace(servers)
+    big_ns = {k: v for k, v in ns_table.items() if v["servers"] >= MIN_NS}
+
     def pct(part: int, whole: int) -> float:
         return round(100.0 * part / whole, 2) if whole else 0.0
 
@@ -213,6 +261,20 @@ def analyse(records: list[dict]) -> tuple[list[dict], dict]:
             "was a false positive, so the description field cannot separate a "
             "malicious server from a legitimate one"
         ),
+        # The headline table. Reported per namespace because the blended figure
+        # moves with the crawl's alphabetical position, not with the registry.
+        "by_namespace": ns_table,
+        # Spread only over namespaces large enough to mean something. A
+        # one-server namespace is trivially 0% or 100% opaque and would make the
+        # range look wider than it is.
+        "opaque_pct_spread": (
+            f"{min(v['opaque_pct'] for v in big_ns.values())}"
+            f" to {max(v['opaque_pct'] for v in big_ns.values())}"
+            f" (namespaces with at least {MIN_NS} servers)"
+            if big_ns
+            else ""
+        ),
+        "by_namespace_min_servers": MIN_NS,
     }
     return servers, summary
 
@@ -261,6 +323,15 @@ def main() -> None:
     print()
     print("transports :", summary["transports"])
     print("registries :", summary["registries"])
+    print()
+    print("--- par espace de nommage (le chiffre global ne veut rien dire seul) ---")
+    print(f"{'prefixe':12s} {'serveurs':>9s} {'depot':>8s} {'paquet':>8s} {'endpoint':>9s} {'opaque':>8s}")
+    for ns, v in list(summary["by_namespace"].items())[:15]:
+        print(
+            f"{ns:12s} {v['servers']:9d} {v['has_repository_pct']:7.1f}% "
+            f"{v['has_packages_pct']:7.1f}% {v['has_remotes_pct']:8.1f}% {v['opaque_pct']:7.1f}%"
+        )
+    print(f"\netalement opaque de {summary['opaque_pct_spread']} selon l'espace de nommage")
     print(f"\nwrote {out_csv} and {out_json}")
 
 

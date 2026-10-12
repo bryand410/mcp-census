@@ -1,0 +1,1192 @@
+{
+  "raw_records": 19500,
+  "latest_servers": 19500,
+  "versions_per_server_median": 1,
+  "versions_per_server_max": 1,
+  "top_version_churn": [
+    [
+      "ac.inference.sh/mcp",
+      1
+    ],
+    [
+      "ac.snag/snag",
+      1
+    ],
+    [
+      "ac.tandem/docs-mcp",
+      1
+    ],
+    [
+      "ad.getle/leads",
+      1
+    ],
+    [
+      "ad.inside/inside-ads",
+      1
+    ],
+    [
+      "ae.brainy/grocery-prices",
+      1
+    ],
+    [
+      "ae.datadubai/dubai-real-estate",
+      1
+    ],
+    [
+      "ae.easyvoice/tts",
+      1
+    ],
+    [
+      "ae.genosys/genosys",
+      1
+    ],
+    [
+      "ae.grovisor/grotax",
+      1
+    ]
+  ],
+  "statuses": {
+    "active": 19172,
+    "deprecated": 328
+  },
+  "no_repository": 8500,
+  "no_repository_pct": 43.59,
+  "repository_sources": {
+    "github": 10928,
+    "gitlab": 72
+  },
+  "no_packages": 12984,
+  "no_packages_pct": 66.58,
+  "unqualified_namespace": 0,
+  "unqualified_namespace_pct": 0.0,
+  "with_remotes": 13866,
+  "with_remotes_pct": 71.11,
+  "opaque_servers": 8003,
+  "opaque_servers_pct": 41.04,
+  "transports": {
+    "streamable-http": 13280,
+    "sse": 758
+  },
+  "registries": {
+    "npm": 3991,
+    "pypi": 1923,
+    "oci": 439,
+    "mcpb": 422,
+    "nuget": 65,
+    "cargo": 22
+  },
+  "unpinned_servers": 611,
+  "unpinned_servers_pct": 3.13,
+  "suspicious_phrase_servers": 0,
+  "suspicious_phrase_pct": 0.0,
+  "suspicious_examples": [],
+  "rejected_pattern_raw_hits": 6,
+  "rejected_pattern_names": [
+    "system prompt",
+    "you are now"
+  ],
+  "descriptions_as_security_signal": "no usable signal: every raw keyword hit was checked by hand and was a false positive, so the description field cannot separate a malicious server from a legitimate one",
+  "by_namespace": {
+    "io": {
+      "servers": 7570,
+      "has_repository_pct": 83.3,
+      "has_packages_pct": 63.2,
+      "has_remotes_pct": 41.1,
+      "opaque_pct": 14.1
+    },
+    "com": {
+      "servers": 6856,
+      "has_repository_pct": 37.2,
+      "has_packages_pct": 14.3,
+      "has_remotes_pct": 90.4,
+      "opaque_pct": 60.3
+    },
+    "ai": {
+      "servers": 1878,
+      "has_repository_pct": 46.2,
+      "has_packages_pct": 14.7,
+      "has_remotes_pct": 89.9,
+      "opaque_pct": 51.6
+    },
+    "dev": {
+      "servers": 821,
+      "has_repository_pct": 43.7,
+      "has_packages_pct": 21.6,
+      "has_remotes_pct": 85.9,
+      "opaque_pct": 52.0
+    },
+    "app": {
+      "servers": 781,
+      "has_repository_pct": 42.8,
+      "has_packages_pct": 8.1,
+      "has_remotes_pct": 94.9,
+      "opaque_pct": 55.4
+    },
+    "co": {
+      "servers": 226,
+      "has_repository_pct": 29.2,
+      "has_packages_pct": 12.8,
+      "has_remotes_pct": 94.2,
+      "opaque_pct": 67.7
+    },
+    "eu": {
+      "servers": 179,
+      "has_repository_pct": 75.4,
+      "has_packages_pct": 57.5,
+      "has_remotes_pct": 45.3,
+      "opaque_pct": 24.0
+    },
+    "de": {
+      "servers": 111,
+      "has_repository_pct": 13.5,
+      "has_packages_pct": 4.5,
+      "has_remotes_pct": 97.3,
+      "opaque_pct": 85.6
+    },
+    "fr": {
+      "servers": 86,
+      "has_repository_pct": 17.4,
+      "has_packages_pct": 2.3,
+      "has_remotes_pct": 98.8,
+      "opaque_pct": 81.4
+    },
+    "cloud": {
+      "servers": 54,
+      "has_repository_pct": 42.6,
+      "has_packages_pct": 16.7,
+      "has_remotes_pct": 88.9,
+      "opaque_pct": 53.7
+    },
+    "br": {
+      "servers": 52,
+      "has_repository_pct": 36.5,
+      "has_packages_pct": 5.8,
+      "has_remotes_pct": 96.2,
+      "opaque_pct": 61.5
+    },
+    "ca": {
+      "servers": 46,
+      "has_repository_pct": 23.9,
+      "has_packages_pct": 6.5,
+      "has_remotes_pct": 97.8,
+      "opaque_pct": 73.9
+    },
+    "ch": {
+      "servers": 46,
+      "has_repository_pct": 26.1,
+      "has_packages_pct": 4.3,
+      "has_remotes_pct": 95.7,
+      "opaque_pct": 73.9
+    },
+    "guide": {
+      "servers": 43,
+      "has_repository_pct": 95.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 4.7
+    },
+    "au": {
+      "servers": 40,
+      "has_repository_pct": 17.5,
+      "has_packages_pct": 5.0,
+      "has_remotes_pct": 97.5,
+      "opaque_pct": 80.0
+    },
+    "in": {
+      "servers": 40,
+      "has_repository_pct": 27.5,
+      "has_packages_pct": 15.0,
+      "has_remotes_pct": 92.5,
+      "opaque_pct": 62.5
+    },
+    "cn": {
+      "servers": 34,
+      "has_repository_pct": 61.8,
+      "has_packages_pct": 8.8,
+      "has_remotes_pct": 88.2,
+      "opaque_pct": 35.3
+    },
+    "info": {
+      "servers": 30,
+      "has_repository_pct": 16.7,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 83.3
+    },
+    "cc": {
+      "servers": 27,
+      "has_repository_pct": 37.0,
+      "has_packages_pct": 11.1,
+      "has_remotes_pct": 88.9,
+      "opaque_pct": 63.0
+    },
+    "fyi": {
+      "servers": 26,
+      "has_repository_pct": 26.9,
+      "has_packages_pct": 3.8,
+      "has_remotes_pct": 96.2,
+      "opaque_pct": 73.1
+    },
+    "cz": {
+      "servers": 25,
+      "has_repository_pct": 12.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 88.0
+    },
+    "es": {
+      "servers": 21,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 9.5,
+      "has_remotes_pct": 95.2,
+      "opaque_pct": 66.7
+    },
+    "finance": {
+      "servers": 16,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 37.5,
+      "has_remotes_pct": 81.2,
+      "opaque_pct": 43.8
+    },
+    "bot": {
+      "servers": 15,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 13.3,
+      "has_remotes_pct": 86.7,
+      "opaque_pct": 60.0
+    },
+    "art": {
+      "servers": 14,
+      "has_repository_pct": 14.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 85.7
+    },
+    "dk": {
+      "servers": 14,
+      "has_repository_pct": 14.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 85.7
+    },
+    "global": {
+      "servers": 14,
+      "has_repository_pct": 64.3,
+      "has_packages_pct": 7.1,
+      "has_remotes_pct": 92.9,
+      "opaque_pct": 35.7
+    },
+    "il": {
+      "servers": 14,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "gg": {
+      "servers": 13,
+      "has_repository_pct": 30.8,
+      "has_packages_pct": 7.7,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 69.2
+    },
+    "ink": {
+      "servers": 13,
+      "has_repository_pct": 46.2,
+      "has_packages_pct": 7.7,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 53.8
+    },
+    "ar": {
+      "servers": 11,
+      "has_repository_pct": 27.3,
+      "has_packages_pct": 9.1,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 72.7
+    },
+    "at": {
+      "servers": 11,
+      "has_repository_pct": 18.2,
+      "has_packages_pct": 18.2,
+      "has_remotes_pct": 90.9,
+      "opaque_pct": 72.7
+    },
+    "fi": {
+      "servers": 11,
+      "has_repository_pct": 27.3,
+      "has_packages_pct": 18.2,
+      "has_remotes_pct": 81.8,
+      "opaque_pct": 63.6
+    },
+    "fun": {
+      "servers": 11,
+      "has_repository_pct": 45.5,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 54.5
+    },
+    "chat": {
+      "servers": 10,
+      "has_repository_pct": 20.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 80.0
+    },
+    "ing": {
+      "servers": 10,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 20.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 40.0
+    },
+    "club": {
+      "servers": 9,
+      "has_repository_pct": 44.4,
+      "has_packages_pct": 22.2,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 55.6
+    },
+    "design": {
+      "servers": 9,
+      "has_repository_pct": 55.6,
+      "has_packages_pct": 22.2,
+      "has_remotes_pct": 77.8,
+      "opaque_pct": 33.3
+    },
+    "ee": {
+      "servers": 9,
+      "has_repository_pct": 22.2,
+      "has_packages_pct": 11.1,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 77.8
+    },
+    "ae": {
+      "servers": 8,
+      "has_repository_pct": 12.5,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 87.5
+    },
+    "agency": {
+      "servers": 8,
+      "has_repository_pct": 62.5,
+      "has_packages_pct": 12.5,
+      "has_remotes_pct": 87.5,
+      "opaque_pct": 25.0
+    },
+    "build": {
+      "servers": 8,
+      "has_repository_pct": 37.5,
+      "has_packages_pct": 12.5,
+      "has_remotes_pct": 87.5,
+      "opaque_pct": 62.5
+    },
+    "biz": {
+      "servers": 7,
+      "has_repository_pct": 28.6,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 71.4
+    },
+    "click": {
+      "servers": 7,
+      "has_repository_pct": 71.4,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 28.6
+    },
+    "help": {
+      "servers": 7,
+      "has_repository_pct": 42.9,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 57.1
+    },
+    "be": {
+      "servers": 6,
+      "has_repository_pct": 66.7,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 33.3
+    },
+    "bio": {
+      "servers": 6,
+      "has_repository_pct": 16.7,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 83.3
+    },
+    "email": {
+      "servers": 6,
+      "has_repository_pct": 66.7,
+      "has_packages_pct": 50.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 16.7
+    },
+    "guru": {
+      "servers": 6,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "host": {
+      "servers": 6,
+      "has_repository_pct": 16.7,
+      "has_packages_pct": 16.7,
+      "has_remotes_pct": 83.3,
+      "opaque_pct": 66.7
+    },
+    "hr": {
+      "servers": 6,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "id": {
+      "servers": 6,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 16.7,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "bid": {
+      "servers": 5,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 60.0,
+      "has_remotes_pct": 60.0,
+      "opaque_pct": 0.0
+    },
+    "cl": {
+      "servers": 5,
+      "has_repository_pct": 40.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 60.0
+    },
+    "cool": {
+      "servers": 5,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 20.0,
+      "has_remotes_pct": 80.0,
+      "opaque_pct": 80.0
+    },
+    "directory": {
+      "servers": 5,
+      "has_repository_pct": 20.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 80.0
+    },
+    "exchange": {
+      "servers": 5,
+      "has_repository_pct": 60.0,
+      "has_packages_pct": 20.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 40.0
+    },
+    "fm": {
+      "servers": 5,
+      "has_repository_pct": 20.0,
+      "has_packages_pct": 20.0,
+      "has_remotes_pct": 80.0,
+      "opaque_pct": 80.0
+    },
+    "games": {
+      "servers": 5,
+      "has_repository_pct": 20.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 80.0
+    },
+    "cash": {
+      "servers": 4,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 75.0,
+      "opaque_pct": 50.0
+    },
+    "coach": {
+      "servers": 4,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "events": {
+      "servers": 4,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "fit": {
+      "servers": 4,
+      "has_repository_pct": 25.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 75.0
+    },
+    "hu": {
+      "servers": 4,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "im": {
+      "servers": 4,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "ac": {
+      "servers": 3,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 66.7
+    },
+    "al": {
+      "servers": 3,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 33.3,
+      "has_remotes_pct": 66.7,
+      "opaque_pct": 66.7
+    },
+    "blue": {
+      "servers": 3,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 33.3,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 66.7
+    },
+    "by": {
+      "servers": 3,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "capital": {
+      "servers": 3,
+      "has_repository_pct": 66.7,
+      "has_packages_pct": 66.7,
+      "has_remotes_pct": 0.0,
+      "opaque_pct": 0.0
+    },
+    "cards": {
+      "servers": 3,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 66.7
+    },
+    "care": {
+      "servers": 3,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 66.7
+    },
+    "cat": {
+      "servers": 3,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "codes": {
+      "servers": 3,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 33.3,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 66.7
+    },
+    "domains": {
+      "servers": 3,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 66.7
+    },
+    "earth": {
+      "servers": 3,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 66.7
+    },
+    "estate": {
+      "servers": 3,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 66.7
+    },
+    "foundation": {
+      "servers": 3,
+      "has_repository_pct": 33.3,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 66.7
+    },
+    "gr": {
+      "servers": 3,
+      "has_repository_pct": 66.7,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 33.3
+    },
+    "group": {
+      "servers": 3,
+      "has_repository_pct": 66.7,
+      "has_packages_pct": 33.3,
+      "has_remotes_pct": 66.7,
+      "opaque_pct": 33.3
+    },
+    "health": {
+      "servers": 3,
+      "has_repository_pct": 66.7,
+      "has_packages_pct": 33.3,
+      "has_remotes_pct": 66.7,
+      "opaque_pct": 33.3
+    },
+    "ad": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "am": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "archi": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "aws": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 100.0,
+      "has_remotes_pct": 0.0,
+      "opaque_pct": 0.0
+    },
+    "bar": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "best": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "bible": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "blog": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 50.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "business": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "center": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "computer": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "consulting": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "cv": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 50.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "cx": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "day": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 50.0,
+      "has_remotes_pct": 50.0,
+      "opaque_pct": 50.0
+    },
+    "digital": {
+      "servers": 2,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 50.0,
+      "has_remotes_pct": 50.0,
+      "opaque_pct": 0.0
+    },
+    "direct": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "do": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "dog": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "eco": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "energy": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "family": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "fans": {
+      "servers": 2,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "fast": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "film": {
+      "servers": 2,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 50.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "food": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "fund": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "gallery": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "ge": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "glass": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 50.0,
+      "has_remotes_pct": 50.0,
+      "opaque_pct": 50.0
+    },
+    "homes": {
+      "servers": 2,
+      "has_repository_pct": 50.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 50.0
+    },
+    "house": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "how": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "icu": {
+      "servers": 2,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 50.0,
+      "has_remotes_pct": 50.0,
+      "opaque_pct": 50.0
+    },
+    "aero": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "africa": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "ag": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "asia": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "audio": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "az": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "baby": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "bg": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "bo": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "boats": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "bond": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "brussels": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "builders": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "bz": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "bzh": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "camp": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "casa": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "cheap": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 100.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "church": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "ci": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "city": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "clinic": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "coffee": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 100.0,
+      "has_remotes_pct": 0.0,
+      "opaque_pct": 0.0
+    },
+    "company": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "cr": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "deals": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "discount": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "engineer": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "engineering": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 100.0,
+      "has_remotes_pct": 0.0,
+      "opaque_pct": 0.0
+    },
+    "et": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "expert": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "garden": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "gl": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 100.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "golf": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "goog": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "gy": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "hk": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "holdings": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 100.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "holiday": {
+      "servers": 1,
+      "has_repository_pct": 0.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 100.0
+    },
+    "immo": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 100.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "industries": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 100.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    },
+    "insure": {
+      "servers": 1,
+      "has_repository_pct": 100.0,
+      "has_packages_pct": 0.0,
+      "has_remotes_pct": 100.0,
+      "opaque_pct": 0.0
+    }
+  },
+  "opaque_pct_spread": "4.7 to 85.6 (namespaces with at least 30 servers)",
+  "by_namespace_min_servers": 30
+}
