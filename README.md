@@ -14,14 +14,16 @@ call it? This repository answers that with numbers instead of impressions.
 
 1. **The registry is two populations, and the average is meaningless.** Opaque
    servers — callable, publishing neither source nor package — run from **4.7 %**
-   in `guide.*` to **85.6 %** in `de.*`. `io.github.*` is 14 % opaque; `com.*` is
-   60 %. A single blended figure describes the crawl's alphabetical position, not
-   the registry.
+   in `guide.*` to **85.6 %** in `de.*`. `io.github.*` is 8 % opaque; `com.*` is
+   60 %. Freezing the dataset twice proves the point: the aggregate fell from
+   **41.0 %** to **24.6 %** between snapshots while every completed namespace
+   stayed identical. The average measures the crawl's alphabetical position.
 2. **Descriptions are not a security signal.** A prompt-injection detector over
-   the description field returned 6 hits in 19 500 servers, and **all six were
-   false positives** — read individually, they are tools that *generate* or
-   *audit* system prompts. The rejected patterns are kept in the code.
-3. **Namespace qualification is not a signal either** — 0 servers out of 19 500
+   the description field returned 9 hits in 36 200 servers, and **all nine were
+   false positives** — including two tools that audit against the **EU AI Act
+   Article 50** and **California SB 243**. The detector flags the compliance
+   tooling. The rejected patterns are kept in the code.
+3. **Namespace qualification is not a signal either** — 0 servers out of 36 200
    lack a reverse-DNS namespace. The registry enforces it, so the column has no
    variance and discriminates nothing.
 
@@ -29,15 +31,23 @@ call it? This repository answers that with numbers instead of impressions.
 
 | Namespace | servers | source | package | endpoint | opaque |
 |---|---:|---:|---:|---:|---:|
-| `io.*` (mostly `io.github.*`) | 7,570 | 83.3 % | 63.2 % | 41.1 % | **14.1 %** |
+| `io.*` (mostly `io.github.*`) | 24,270 | 90.0 % | 53.2 % | 49.8 % | **8.1 %** |
 | `com.*` | 6,856 | 37.2 % | 14.3 % | 90.4 % | **60.3 %** |
 | `ai.*` | 1,878 | 46.2 % | 14.7 % | 89.9 % | **51.6 %** |
 | `dev.*` | 821 | 43.7 % | 21.6 % | 85.9 % | **52.0 %** |
 | `de.*` | 111 | 13.5 % | 4.5 % | 97.3 % | **85.6 %** |
 
-Frozen at 19,500 servers on 12 October 2026. The pass is incomplete — it stopped
+Frozen at 36,200 servers on 12 October 2026. The pass is incomplete — it stopped
 inside `io.github.*` — so the counts are lower bounds. The percentages per
 namespace are stable across completed namespaces.
+
+## A bug that will cost you 90 minutes
+
+Both crawls died on `http.client.RemoteDisconnected`. The retry loop caught
+`urllib.error.URLError`, but `RemoteDisconnected` inherits from
+`ConnectionResetError`, which is a **sibling** of `URLError`, not a subclass — so
+the most likely failure on a long crawl was the one exception it did not catch.
+Catch `OSError` plus `http.client.HTTPException`. See `RETRYABLE` in `crawl.py`.
 
 ## What the registry is
 
@@ -118,16 +128,25 @@ intentions.
 
 An earlier version of `analyze.py` looked for prompt-injection wording in server
 descriptions, with `system prompt` and `you are now` among the patterns. It
-found two servers. Both were false positives:
+found nine servers. **All nine were false positives**, and reading them one by
+one is what makes the point:
 
 - `app.web.mindset-502113/mindset` — *"Semantic search over MINDSET's brand
   strategy topic database, plus its system prompt."* A product description.
 - `com.runningunattended/agent-lint` — *"Checks CLAUDE.md, AGENTS.md or a system
   prompt for 12 safeguards unattended agents need."* A security tool.
+- `io.github.jmshinhwa/ai-act-article-50-audit` — *"Finds the AI call sites,
+  generation code and system prompts that trigger EU AI Act Article 50
+  disclosure…"*
+- `io.github.jmshinhwa/ai-companion-safety-lint` — *"Reads your companion
+  chatbot's system prompt against California SB 243, New York GBL Article 47…"*
 
 In this domain those phrases are ordinary vocabulary, because operating on a
-system prompt is what half these servers are *for*. The patterns were removed,
-`REJECTED_PATTERNS` keeps them visible, and `summary.json` reports
+system prompt is what half these servers are *for*. **And the failure is worse
+than noise:** the detector flags the compliance tooling — the EU AI Act and
+California SB 243 auditors. A security detector that points at the people
+writing the safety checks has the worst possible failure mode. The patterns were
+removed, `REJECTED_PATTERNS` keeps them visible, and `summary.json` reports
 `rejected_pattern_raw_hits` so the false-positive rate stays auditable instead
 of being quietly deleted.
 

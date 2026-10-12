@@ -1,6 +1,6 @@
 {
-  "raw_records": 19500,
-  "latest_servers": 19500,
+  "raw_records": 36200,
+  "latest_servers": 36200,
   "versions_per_server_median": 1,
   "versions_per_server_max": 1,
   "top_version_churn": [
@@ -46,41 +46,41 @@
     ]
   ],
   "statuses": {
-    "active": 19172,
-    "deprecated": 328
+    "active": 35738,
+    "deprecated": 462
   },
-  "no_repository": 8500,
-  "no_repository_pct": 43.59,
+  "no_repository": 9656,
+  "no_repository_pct": 26.67,
   "repository_sources": {
-    "github": 10928,
+    "github": 26472,
     "gitlab": 72
   },
-  "no_packages": 12984,
-  "no_packages_pct": 66.58,
+  "no_packages": 21571,
+  "no_packages_pct": 59.59,
   "unqualified_namespace": 0,
   "unqualified_namespace_pct": 0.0,
-  "with_remotes": 13866,
-  "with_remotes_pct": 71.11,
-  "opaque_servers": 8003,
-  "opaque_servers_pct": 41.04,
+  "with_remotes": 22855,
+  "with_remotes_pct": 63.14,
+  "opaque_servers": 8893,
+  "opaque_servers_pct": 24.57,
   "transports": {
-    "streamable-http": 13280,
-    "sse": 758
+    "streamable-http": 22169,
+    "sse": 929
   },
   "registries": {
-    "npm": 3991,
-    "pypi": 1923,
-    "oci": 439,
-    "mcpb": 422,
-    "nuget": 65,
-    "cargo": 22
+    "npm": 9458,
+    "pypi": 3850,
+    "oci": 921,
+    "mcpb": 818,
+    "nuget": 133,
+    "cargo": 63
   },
-  "unpinned_servers": 611,
-  "unpinned_servers_pct": 3.13,
+  "unpinned_servers": 1317,
+  "unpinned_servers_pct": 3.64,
   "suspicious_phrase_servers": 0,
   "suspicious_phrase_pct": 0.0,
   "suspicious_examples": [],
-  "rejected_pattern_raw_hits": 6,
+  "rejected_pattern_raw_hits": 9,
   "rejected_pattern_names": [
     "system prompt",
     "you are now"
@@ -88,11 +88,11 @@
   "descriptions_as_security_signal": "no usable signal: every raw keyword hit was checked by hand and was a false positive, so the description field cannot separate a malicious server from a legitimate one",
   "by_namespace": {
     "io": {
-      "servers": 7570,
-      "has_repository_pct": 83.3,
-      "has_packages_pct": 63.2,
-      "has_remotes_pct": 41.1,
-      "opaque_pct": 14.1
+      "servers": 24270,
+      "has_repository_pct": 90.0,
+      "has_packages_pct": 53.2,
+      "has_remotes_pct": 49.8,
+      "opaque_pct": 8.1
     },
     "com": {
       "servers": 6856,

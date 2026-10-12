@@ -23,6 +23,7 @@ what the registry says.
 from __future__ import annotations
 
 import argparse
+import http.client
 import json
 import pathlib
 import sys
@@ -34,7 +35,22 @@ import urllib.request
 BASE = "https://registry.modelcontextprotocol.io/v0/servers"
 LIMIT = 100  # the API rejects anything larger with a 422
 TIMEOUT = 180  # a deep cursor page took 60s to answer; 60 would sit on the edge
+RETRIES = 8  # a 90-minute crawl should not die on one dropped connection
 UA = "mcp-census/0.1 (+https://github.com/bryand410)"
+
+# What counts as a transient failure. This list is the whole point of the
+# retry loop, and getting it wrong is expensive:
+#
+#   http.client.RemoteDisconnected inherits from ConnectionResetError, which is
+#   an OSError. urllib.error.URLError is *also* an OSError, but the two are
+#   siblings, not parent and child. Catching only URLError therefore misses the
+#   single most likely failure on a long crawl -- the server closing the
+#   connection mid-response -- and the run dies after 90 minutes of work.
+#
+# Catching OSError covers URLError, ConnectionResetError, RemoteDisconnected and
+# plain socket timeouts; HTTPException covers a malformed status line. Only a
+# genuinely unretryable error, or exhausting RETRIES, stops the crawl.
+RETRYABLE = (OSError, http.client.HTTPException, json.JSONDecodeError)
 
 
 def build_url(cursor: str | None, version: str | None, search: str | None) -> str:
@@ -59,7 +75,7 @@ def fetch(
     cursor: str | None,
     version: str | None = None,
     search: str | None = None,
-    retries: int = 5,
+    retries: int = RETRIES,
 ) -> dict:
     """Fetch one page, retrying on transient failures."""
     url = build_url(cursor, version, search)
@@ -72,10 +88,17 @@ def fetch(
             )
             with urllib.request.urlopen(req, timeout=TIMEOUT) as response:
                 return json.loads(response.read().decode("utf-8"))
-        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as err:
+        except RETRYABLE as err:
             last = err
             # Back off, but do not hammer a service that is already unhappy.
-            time.sleep(2 ** attempt)
+            # Capped at 30s: eight doublings would otherwise reach two minutes.
+            delay = min(2 ** attempt, 30)
+            print(
+                f"    retry {attempt + 1}/{retries} in {delay}s "
+                f"({type(err).__name__}: {err})",
+                file=sys.stderr,
+            )
+            time.sleep(delay)
     raise RuntimeError(f"gave up after {retries} attempts: {last}")
 
 
